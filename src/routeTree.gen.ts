@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as OrcamentoRouteImport } from './routes/orcamento'
+import { Route as ProcessoRouteImport } from './routes/processo'
+import { Route as ServicosRouteImport } from './routes/servicos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrcamentoRoute = OrcamentoRouteImport.update({
+  id: '/orcamento',
+  path: '/orcamento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProcessoRoute = ProcessoRouteImport.update({
+  id: '/processo',
+  path: '/processo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosRoute = ServicosRouteImport.update({
+  id: '/servicos',
+  path: '/servicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/contato': typeof ContatoRoute
+  '/orcamento': typeof OrcamentoRoute
+  '/processo': typeof ProcessoRoute
+  '/servicos': typeof ServicosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/contato': typeof ContatoRoute
+  '/orcamento': typeof OrcamentoRoute
+  '/processo': typeof ProcessoRoute
+  '/servicos': typeof ServicosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/contato': typeof ContatoRoute
+  '/orcamento': typeof OrcamentoRoute
+  '/processo': typeof ProcessoRoute
+  '/servicos': typeof ServicosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/admin' | '/contato' | '/orcamento' | '/processo' | '/servicos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/admin' | '/contato' | '/orcamento' | '/processo' | '/servicos'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/contato'
+    | '/orcamento'
+    | '/processo'
+    | '/servicos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  ContatoRoute: typeof ContatoRoute
+  OrcamentoRoute: typeof OrcamentoRoute
+  ProcessoRoute: typeof ProcessoRoute
+  ServicosRoute: typeof ServicosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +106,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orcamento': {
+      id: '/orcamento'
+      path: '/orcamento'
+      fullPath: '/orcamento'
+      preLoaderRoute: typeof OrcamentoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/processo': {
+      id: '/processo'
+      path: '/processo'
+      fullPath: '/processo'
+      preLoaderRoute: typeof ProcessoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicos': {
+      id: '/servicos'
+      path: '/servicos'
+      fullPath: '/servicos'
+      preLoaderRoute: typeof ServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  ContatoRoute: ContatoRoute,
+  OrcamentoRoute: OrcamentoRoute,
+  ProcessoRoute: ProcessoRoute,
+  ServicosRoute: ServicosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

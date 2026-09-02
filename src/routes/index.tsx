@@ -1,24 +1,130 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SectionTitle } from "@/components/site/SectionTitle";
+import { InkSplatter } from "@/components/site/InkSplatter";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "NAI SILK — Serigrafia e Estampas Personalizadas" },
+      {
+        name: "description",
+        content:
+          "NAI SILK: arte personalizada em camisetas pelo processo artesanal de serigrafia. Solicite um orçamento para sua estampa.",
+      },
+      { property: "og:title", content: "NAI SILK — Serigrafia e Estampas Personalizadas" },
+      {
+        property: "og:description",
+        content: "Estampas personalizadas em camisetas pelo processo artesanal de silkscreen.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+const PILLARS = [
+  {
+    n: "01",
+    title: "Serigrafia",
+    text: "Telas, emulsão e rodo. Cada cor é impressa separadamente, camada sobre camada.",
+  },
+  {
+    n: "02",
+    title: "Indústria",
+    text: "Estrutura para atender do lote pequeno à produção contínua com padrão constante.",
+  },
+  {
+    n: "03",
+    title: "Arte",
+    text: "Arte-final tratada peça a peça: traço, registro e paleta pensados para o tecido.",
+  },
+  {
+    n: "04",
+    title: "Impressão",
+    text: "Tinta firme, acabamento resistente e teste de qualidade antes da entrega.",
+  },
+];
+
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div>
+      {/* Manchete */}
+      <section className="paper-grain relative overflow-hidden border-b-[3px] border-border">
+        <InkSplatter className="pointer-events-none absolute -right-16 -top-20 size-72 text-primary/10 sm:size-96" />
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+          <div className="flex flex-wrap items-center gap-3 border-y-2 border-border py-2 font-type text-[0.65rem] uppercase tracking-[0.24em] text-muted-foreground">
+            <span>Edição Oficina</span>
+            <span className="text-primary">·</span>
+            <span>Silkscreen artesanal</span>
+            <span className="text-primary">·</span>
+            <span>Camisetas personalizadas</span>
+          </div>
+
+          <h1 className="ink-press mt-8 font-display text-5xl font-black uppercase leading-[0.92] sm:text-7xl lg:text-8xl">
+            Arte
+            <span className="block text-primary">Personalizada</span>
+            em Serigrafia
+          </h1>
+
+          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+            A NAI SILK imprime estampas em camisetas com o método clássico de silkscreen —
+            tela por tela, cor por cor, sem pressa e sem atalho.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              to="/orcamento"
+              className="border-2 border-border bg-primary px-6 py-3 font-stencil text-sm uppercase tracking-[0.18em] text-primary-foreground transition-transform hover:-translate-y-0.5"
+            >
+              Solicitar orçamento
+            </Link>
+            <Link
+              to="/processo"
+              className="border-2 border-border px-6 py-3 font-stencil text-sm uppercase tracking-[0.18em] transition-colors hover:bg-secondary"
+            >
+              Ver o processo
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Pilares */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <SectionTitle
+          kicker="A marca"
+          title="Serigrafia · Indústria · Arte · Impressão"
+          description="Quatro princípios que orientam cada tiragem que sai da oficina."
+        />
+        <div className="mt-10 grid gap-px border-2 border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {PILLARS.map((p) => (
+            <article key={p.n} className="bg-card p-6">
+              <span className="font-type text-xs tracking-[0.3em] text-primary">{p.n}</span>
+              <h3 className="mt-3 font-display text-2xl font-black uppercase">{p.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{p.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Chamada */}
+      <section className="halftone border-y-[3px] border-border bg-paper-deep">
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-14 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="ink-press font-display text-3xl font-black uppercase sm:text-4xl">
+              Tem uma arte em mente?
+            </h2>
+            <p className="mt-2 max-w-lg text-muted-foreground">
+              Envie os detalhes da peça e até 3 arquivos de referência. Retornamos com o
+              orçamento da tiragem.
+            </p>
+          </div>
+          <Link
+            to="/orcamento"
+            className="border-2 border-border bg-primary px-6 py-3 font-stencil text-sm uppercase tracking-[0.18em] text-primary-foreground"
+          >
+            Começar orçamento
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
