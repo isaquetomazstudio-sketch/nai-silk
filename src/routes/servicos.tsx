@@ -67,7 +67,7 @@ function ServicosPage() {
 
       <div className="rule-thick mt-12 py-8">
         <p className="font-type text-sm uppercase tracking-[0.18em] text-muted-foreground">
-          Tabela de preços ainda não publicada — será cadastrada pelo proprietário.
+          
         </p>
         <Link
           to="/orcamento"
