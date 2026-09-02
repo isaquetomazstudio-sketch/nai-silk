@@ -102,7 +102,7 @@ function OrcamentoPage() {
               <span className={labelClass}>Quantidade</span>
               <input
                 type="number"
-                min={1}
+                min={10}
                 className={fieldClass}
                 value={form.quantity ?? ""}
                 onChange={(e) =>
