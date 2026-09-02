@@ -18,7 +18,7 @@ export function SiteHeader() {
         <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
           <span className="halftone flex size-11 items-center justify-center border-2 border-border bg-primary">
             <span className="font-stencil text-lg font-bold uppercase text-primary-foreground">
-              NS
+              
             </span>
           </span>
           <span className="leading-none">
