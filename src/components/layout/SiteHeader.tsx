@@ -7,7 +7,6 @@ const NAV = [
   { to: "/servicos", label: "Serviços" },
   { to: "/processo", label: "Processo" },
   { to: "/orcamento", label: "Orçamento" },
-  { to: "/contato", label: "Contato" },
 ] as const;
 
 export function SiteHeader() {
