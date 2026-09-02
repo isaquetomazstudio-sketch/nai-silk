@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SectionTitle } from "@/components/site/SectionTitle";
 import { InkSplatter } from "@/components/site/InkSplatter";
+import { InkSpeckles } from "@/components/site/InkSpeckles";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,6 +51,7 @@ function Index() {
       {/* Manchete */}
       <section className="paper-grain relative overflow-hidden border-b-[3px] border-border">
         <InkSplatter className="pointer-events-none absolute -right-16 -top-20 size-72 text-primary/10 sm:size-96" />
+        <InkSpeckles group="hero" />
         <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
           <div className="flex flex-wrap items-center gap-3 border-y-2 border-border py-2 font-type text-[0.65rem] uppercase tracking-[0.24em] text-muted-foreground">
             <span>Edição Oficina</span>
@@ -88,7 +90,8 @@ function Index() {
       </section>
 
       {/* Pilares */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <section className="relative mx-auto max-w-6xl px-4 py-16">
+        <InkSpeckles group="pillars" />
         <SectionTitle
           kicker="A marca"
           title="Serigrafia · Indústria · Arte · Impressão"
@@ -106,7 +109,8 @@ function Index() {
       </section>
 
       {/* Chamada */}
-      <section className="halftone border-y-[3px] border-border bg-paper-deep">
+      <section className="relative halftone border-y-[3px] border-border bg-paper-deep">
+        <InkSpeckles group="cta" />
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-14 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="ink-press font-display text-3xl font-black uppercase sm:text-4xl">
