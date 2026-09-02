@@ -4,24 +4,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
-
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
@@ -46,6 +32,10 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ochre: var(--ochre);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -59,77 +49,89 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-stencil: "Oswald", "Arial Narrow", sans-serif;
+  --font-type: "Special Elite", "Courier New", monospace;
+  --font-sans: "Work Sans", system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --radius: 0.125rem;
+
+  /* Papel envelhecido */
+  --paper: oklch(0.947 0.014 88);
+  --paper-deep: oklch(0.897 0.023 85);
+  --ink: oklch(0.205 0.012 60);
+  --ochre: oklch(0.72 0.11 74);
+
+  --background: oklch(0.947 0.014 88);
+  --foreground: oklch(0.205 0.012 60);
+  --card: oklch(0.972 0.011 90);
+  --card-foreground: oklch(0.205 0.012 60);
+  --popover: oklch(0.972 0.011 90);
+  --popover-foreground: oklch(0.205 0.012 60);
+  /* Tinta vermelha de serigrafia */
+  --primary: oklch(0.508 0.176 29);
+  --primary-foreground: oklch(0.972 0.011 90);
+  --secondary: oklch(0.897 0.023 85);
+  --secondary-foreground: oklch(0.205 0.012 60);
+  --muted: oklch(0.897 0.023 85);
+  --muted-foreground: oklch(0.45 0.017 65);
+  --accent: oklch(0.72 0.11 74);
+  --accent-foreground: oklch(0.205 0.012 60);
+  --destructive: oklch(0.508 0.176 29);
+  --destructive-foreground: oklch(0.972 0.011 90);
+  --border: oklch(0.35 0.014 62);
+  --input: oklch(0.35 0.014 62);
+  --ring: oklch(0.508 0.176 29);
+  --chart-1: oklch(0.508 0.176 29);
+  --chart-2: oklch(0.72 0.11 74);
+  --chart-3: oklch(0.45 0.017 65);
+  --chart-4: oklch(0.55 0.09 200);
+  --chart-5: oklch(0.205 0.012 60);
+  --sidebar: oklch(0.897 0.023 85);
+  --sidebar-foreground: oklch(0.205 0.012 60);
+  --sidebar-primary: oklch(0.508 0.176 29);
+  --sidebar-primary-foreground: oklch(0.972 0.011 90);
+  --sidebar-accent: oklch(0.947 0.014 88);
+  --sidebar-accent-foreground: oklch(0.205 0.012 60);
+  --sidebar-border: oklch(0.35 0.014 62);
+  --sidebar-ring: oklch(0.508 0.176 29);
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --paper: oklch(0.24 0.012 70);
+  --paper-deep: oklch(0.19 0.01 70);
+  --ink: oklch(0.93 0.012 88);
+  --ochre: oklch(0.75 0.1 74);
+
+  --background: oklch(0.19 0.01 70);
+  --foreground: oklch(0.93 0.012 88);
+  --card: oklch(0.24 0.012 70);
+  --card-foreground: oklch(0.93 0.012 88);
+  --popover: oklch(0.24 0.012 70);
+  --popover-foreground: oklch(0.93 0.012 88);
+  --primary: oklch(0.6 0.17 29);
+  --primary-foreground: oklch(0.97 0.011 90);
+  --secondary: oklch(0.3 0.013 70);
+  --secondary-foreground: oklch(0.93 0.012 88);
+  --muted: oklch(0.3 0.013 70);
+  --muted-foreground: oklch(0.72 0.014 75);
+  --accent: oklch(0.75 0.1 74);
+  --accent-foreground: oklch(0.19 0.01 70);
+  --destructive: oklch(0.6 0.17 29);
+  --destructive-foreground: oklch(0.97 0.011 90);
+  --border: oklch(0.93 0.012 88 / 35%);
+  --input: oklch(0.93 0.012 88 / 35%);
+  --ring: oklch(0.6 0.17 29);
+  --sidebar: oklch(0.24 0.012 70);
+  --sidebar-foreground: oklch(0.93 0.012 88);
+  --sidebar-primary: oklch(0.6 0.17 29);
+  --sidebar-primary-foreground: oklch(0.97 0.011 90);
+  --sidebar-accent: oklch(0.3 0.013 70);
+  --sidebar-accent-foreground: oklch(0.93 0.012 88);
+  --sidebar-border: oklch(0.93 0.012 88 / 35%);
+  --sidebar-ring: oklch(0.6 0.17 29);
 }
 
 @layer base {
@@ -140,5 +142,52 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Textura sutil de papel (fibra + granulado de impressão) */
+@utility paper-grain {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image:
+      radial-gradient(circle at 18% 22%, color-mix(in oklab, var(--ink) 7%, transparent) 0 1px, transparent 1.4px),
+      radial-gradient(circle at 62% 71%, color-mix(in oklab, var(--ink) 5%, transparent) 0 1px, transparent 1.4px),
+      radial-gradient(circle at 84% 36%, color-mix(in oklab, var(--ink) 6%, transparent) 0 1px, transparent 1.4px);
+    background-size: 7px 7px, 11px 11px, 13px 13px;
+  }
+}
+
+/* Malha de serigrafia / meio-tom */
+@utility halftone {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--ink) 28%, transparent) 1px,
+    transparent 1.3px
+  );
+  background-size: 6px 6px;
+}
+
+/* Borda de carimbo/impressão */
+@utility rule-thick {
+  border-top: 3px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@utility ink-press {
+  text-shadow: 0.5px 0.5px 0 color-mix(in oklab, var(--ink) 22%, transparent);
 }
