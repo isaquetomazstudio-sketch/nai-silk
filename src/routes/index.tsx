@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SectionTitle } from "@/components/site/SectionTitle";
 import { InkSplatter } from "@/components/site/InkSplatter";
+import { InkSpeckles } from "@/components/site/InkSpeckles";
 
 export const Route = createFileRoute("/")({
   head: () => ({
