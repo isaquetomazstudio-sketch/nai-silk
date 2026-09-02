@@ -25,7 +25,7 @@ const STEPS = [
   { n: "02", title: "Fotolito", text: "Cada camada é impressa em transparência para gravar a tela." },
   { n: "03", title: "Queima da tela", text: "A matriz emulsionada é exposta à luz e revelada com água." },
   { n: "04", title: "Registro", text: "As telas são alinhadas na base para que as cores encaixem." },
-  { n: "05", title: "Impressão", text: "A tinta é puxada com rodo, uma passada por cor." },
+  { n: "05", title: "Impressão", text: "A tinta é puxada com rodo, uma tela por cor." },
   { n: "06", title: "Cura e revisão", text: "A peça é curada no calor e conferida antes de embalar." },
 ];
 
