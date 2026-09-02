@@ -27,7 +27,7 @@ const SERVICES = [
   },
   {
     title: "Uniformes e equipes",
-    text: "Identidade aplicada em frente, costas e manga, com numeração e nomes quando necessário.",
+    text: "Identidade aplicada em frente, costas e manga.",
   },
   {
     title: "Tiragens em série",
