@@ -47,7 +47,7 @@ export function SiteHeader() {
             to="/admin"
             className="font-type text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground hover:text-primary"
           >
-            Área do proprietário
+            ÁREA ADMINISTRATIVA
           </Link>
         </nav>
 
