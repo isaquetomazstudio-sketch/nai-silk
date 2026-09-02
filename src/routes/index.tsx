@@ -39,7 +39,7 @@ const PILLARS = [
   },
   {
     n: "04",
-    title: "Impressão",
+    title: "RESULTADO",
     text: "Tinta firme, acabamento resistente e teste de qualidade antes da entrega.",
   },
 ];
