@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SectionTitle } from "@/components/site/SectionTitle";
 import { InkSplatter } from "@/components/site/InkSplatter";
 import { InkSpeckles } from "@/components/site/InkSpeckles";
+import oficinaAsset from "@/assets/oficina-serigrafia.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -87,6 +88,21 @@ function Index() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Foto da oficina */}
+      <section className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
+        <figure className="border-[3px] border-border bg-card p-2 shadow-[8px_8px_0px_0px_hsl(var(--border))]">
+          <img
+            src={oficinaAsset.url}
+            alt="Oficina de serigrafia da NAI SILK com camisetas azuis em uma mesa carrossel"
+            className="aspect-[16/10] w-full object-cover grayscale-[15%] sepia-[10%]"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 border-t-2 border-border pt-2 text-center font-type text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">
+            Mesa carrossel da oficina · tiragem em andamento
+          </figcaption>
+        </figure>
       </section>
 
       {/* Pilares */}
