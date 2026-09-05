@@ -59,7 +59,7 @@ function ServicosPage() {
       <div className="mt-10 grid gap-px border-2 border-border bg-border md:grid-cols-2 lg:grid-cols-3">
         {SERVICES.map((s) => (
           <article key={s.title} className="bg-card p-6">
-            <h3 className="font-display text-xl font-black uppercase">{s.title}</h3>
+            <h3 className="break-words font-display text-xl font-black uppercase">{s.title}</h3>
             <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
           </article>
         ))}
