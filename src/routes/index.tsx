@@ -124,6 +124,31 @@ function Index() {
         </div>
       </section>
 
+      {/* Nosso trabalho */}
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <SectionTitle
+          kicker="Nosso trabalho"
+          title="Peças que saíram da oficina"
+          description="Registros de tiragens e estampas produzidas na NAI SILK."
+        />
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
+          {WORKS.map((w) => (
+            <figure
+              key={w.src}
+              className="border-[3px] border-border bg-card p-2 shadow-[6px_6px_0px_0px_hsl(var(--border))]"
+            >
+              <img
+                src={w.src}
+                alt={w.alt}
+                className="aspect-square w-full object-cover"
+                loading="lazy"
+              />
+            </figure>
+          ))}
+        </div>
+      </section>
+
+
       {/* Chamada */}
       <section className="relative halftone border-y-[3px] border-border bg-paper-deep">
         <InkSpeckles group="cta" />
