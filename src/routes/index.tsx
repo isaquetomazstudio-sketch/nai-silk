@@ -3,6 +3,21 @@ import { SectionTitle } from "@/components/site/SectionTitle";
 import { InkSplatter } from "@/components/site/InkSplatter";
 import { InkSpeckles } from "@/components/site/InkSpeckles";
 import oficinaAsset from "@/assets/oficina-serigrafia.jpg.asset.json";
+import trabalho1 from "@/assets/trabalho-image.png.asset.json";
+import trabalho2 from "@/assets/trabalho-image-2.png.asset.json";
+import trabalho3 from "@/assets/trabalho-image-3.png.asset.json";
+import trabalho4 from "@/assets/trabalho-image-4.png.asset.json";
+import trabalho5 from "@/assets/trabalho-image-5.png.asset.json";
+import trabalho6 from "@/assets/trabalho-image-6.png.asset.json";
+
+const WORKS = [
+  { src: trabalho1.url, alt: "Camiseta branca com estampa Filhos do Fogo em serigrafia" },
+  { src: trabalho2.url, alt: "Pilhas de camisas polo estampadas para empresa" },
+  { src: trabalho3.url, alt: "Bermuda esportiva amarela com estampa Red Bull" },
+  { src: trabalho4.url, alt: "Camiseta preta com estampa Bar Brahma" },
+  { src: trabalho5.url, alt: "Mesa carrossel com camisetas CAM 500 em tiragem" },
+  { src: trabalho6.url, alt: "Mesa carrossel com camisetas ENFIL em produção" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -123,6 +138,31 @@ function Index() {
           ))}
         </div>
       </section>
+
+      {/* Nosso trabalho */}
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <SectionTitle
+          kicker="Nosso trabalho"
+          title="Peças que saíram da oficina"
+          description="Registros de tiragens e estampas produzidas na NAI SILK."
+        />
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
+          {WORKS.map((w) => (
+            <figure
+              key={w.src}
+              className="border-[3px] border-border bg-card p-2 shadow-[6px_6px_0px_0px_hsl(var(--border))]"
+            >
+              <img
+                src={w.src}
+                alt={w.alt}
+                className="aspect-square w-full object-cover"
+                loading="lazy"
+              />
+            </figure>
+          ))}
+        </div>
+      </section>
+
 
       {/* Chamada */}
       <section className="relative halftone border-y-[3px] border-border bg-paper-deep">
