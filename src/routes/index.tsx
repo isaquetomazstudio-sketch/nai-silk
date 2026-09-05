@@ -61,7 +61,7 @@ function Index() {
             <span>Camisetas personalizadas</span>
           </div>
 
-          <h1 className="ink-press mt-8 font-display text-5xl font-black uppercase leading-[0.92] sm:text-7xl lg:text-8xl">
+          <h1 className="ink-press mt-8 break-words font-display text-4xl font-black uppercase leading-[0.92] sm:text-6xl lg:text-7xl">
             Arte
             <span className="block text-primary">Personalizada</span>
             em Serigrafia

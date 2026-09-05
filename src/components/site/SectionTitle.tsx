@@ -16,7 +16,7 @@ export function SectionTitle({
           {kicker}
         </span>
       )}
-      <h2 className="ink-press mt-2 font-display text-3xl font-black uppercase leading-tight sm:text-4xl">
+      <h2 className="ink-press mt-2 break-words font-display text-3xl font-black uppercase leading-tight sm:text-4xl">
         {title}
       </h2>
       {description && <p className="mt-3 text-muted-foreground">{description}</p>}

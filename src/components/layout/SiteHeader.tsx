@@ -63,7 +63,7 @@ export function SiteHeader() {
 
       {open && (
         <nav className="flex flex-col border-t-2 border-border bg-paper-deep px-4 py-3 md:hidden">
-          {[...NAV, { to: "/admin", label: "Área do proprietário" } as const].map((item) => (
+          {[...NAV, { to: "/admin", label: "ÁREA ADMINISTRATIVA" } as const].map((item) => (
             <Link
               key={item.to}
               to={item.to}
