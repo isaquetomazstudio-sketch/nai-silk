@@ -3,6 +3,21 @@ import { SectionTitle } from "@/components/site/SectionTitle";
 import { InkSplatter } from "@/components/site/InkSplatter";
 import { InkSpeckles } from "@/components/site/InkSpeckles";
 import oficinaAsset from "@/assets/oficina-serigrafia.jpg.asset.json";
+import trabalho1 from "@/assets/trabalho-image.png.asset.json";
+import trabalho2 from "@/assets/trabalho-image-2.png.asset.json";
+import trabalho3 from "@/assets/trabalho-image-3.png.asset.json";
+import trabalho4 from "@/assets/trabalho-image-4.png.asset.json";
+import trabalho5 from "@/assets/trabalho-image-5.png.asset.json";
+import trabalho6 from "@/assets/trabalho-image-6.png.asset.json";
+
+const WORKS = [
+  { src: trabalho1.url, alt: "Camiseta branca com estampa Filhos do Fogo em serigrafia" },
+  { src: trabalho2.url, alt: "Pilhas de camisas polo estampadas para empresa" },
+  { src: trabalho3.url, alt: "Bermuda esportiva amarela com estampa Red Bull" },
+  { src: trabalho4.url, alt: "Camiseta preta com estampa Bar Brahma" },
+  { src: trabalho5.url, alt: "Mesa carrossel com camisetas CAM 500 em tiragem" },
+  { src: trabalho6.url, alt: "Mesa carrossel com camisetas ENFIL em produção" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
