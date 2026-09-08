@@ -11,12 +11,12 @@ import trabalho5 from "@/assets/trabalho-image-5.png";
 import trabalho6 from "@/assets/trabalho-image-6.png";
 
 const WORKS = [
-  { src: trabalho1.url, alt: "Camiseta branca com estampa Filhos do Fogo em serigrafia" },
-  { src: trabalho2.url, alt: "Pilhas de camisas polo estampadas para empresa" },
-  { src: trabalho3.url, alt: "Bermuda esportiva amarela com estampa Red Bull" },
-  { src: trabalho4.url, alt: "Camiseta preta com estampa Bar Brahma" },
-  { src: trabalho5.url, alt: "Mesa carrossel com camisetas CAM 500 em tiragem" },
-  { src: trabalho6.url, alt: "Mesa carrossel com camisetas ENFIL em produção" },
+  { src: trabalho1, alt: "Camiseta branca com estampa Filhos do Fogo em serigrafia" },
+  { src: trabalho2, alt: "Pilhas de camisas polo estampadas para empresa" },
+  { src: trabalho3, alt: "Bermuda esportiva amarela com estampa Red Bull" },
+  { src: trabalho4, alt: "Camiseta preta com estampa Bar Brahma" },
+  { src: trabalho5, alt: "Mesa carrossel com camisetas CAM 500 em tiragem" },
+  { src: trabalho6, alt: "Mesa carrossel com camisetas ENFIL em produção" },
 ];
 
 export const Route = createFileRoute("/")({
@@ -109,7 +109,7 @@ function Index() {
       <section className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
         <figure className="border-[3px] border-border bg-card p-2 shadow-[8px_8px_0px_0px_hsl(var(--border))]">
           <img
-            src={oficinaAsset.url}
+            src={oficinaImg}
             alt="Oficina de serigrafia da NAI SILK com camisetas azuis em uma mesa carrossel"
             className="aspect-[16/10] w-full object-cover grayscale-[15%] sepia-[10%]"
             loading="lazy"
