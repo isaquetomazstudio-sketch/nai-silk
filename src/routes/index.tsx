@@ -2,13 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SectionTitle } from "@/components/site/SectionTitle";
 import { InkSplatter } from "@/components/site/InkSplatter";
 import { InkSpeckles } from "@/components/site/InkSpeckles";
-import oficinaAsset from "@/assets/oficina-serigrafia.jpg.asset.json";
-import trabalho1 from "@/assets/trabalho-image.png.asset.json";
-import trabalho2 from "@/assets/trabalho-image-2.png.asset.json";
-import trabalho3 from "@/assets/trabalho-image-3.png.asset.json";
-import trabalho4 from "@/assets/trabalho-image-4.png.asset.json";
-import trabalho5 from "@/assets/trabalho-image-5.png.asset.json";
-import trabalho6 from "@/assets/trabalho-image-6.png.asset.json";
+import oficinaImg from "@/assets/oficina-serigrafia.jpg";
+import trabalho1 from "@/assets/trabalho-image.png";
+import trabalho2 from "@/assets/trabalho-image-2.png";
+import trabalho3 from "@/assets/trabalho-image-3.png";
+import trabalho4 from "@/assets/trabalho-image-4.png";
+import trabalho5 from "@/assets/trabalho-image-5.png";
+import trabalho6 from "@/assets/trabalho-image-6.png";
 
 const WORKS = [
   { src: trabalho1.url, alt: "Camiseta branca com estampa Filhos do Fogo em serigrafia" },
